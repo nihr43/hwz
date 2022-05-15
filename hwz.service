@@ -1,0 +1,16 @@
+[Unit]
+Description=Hardware z-page
+After=network-online.target firewalld.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/sbin/hwz
+ExecReload=/bin/kill -s HUP $MAINPID
+KillMode=process
+Restart=on-failure
+StartLimitBurst=3
+StartLimitInterval=60s
+
+[Install]
+WantedBy=multi-user.target
