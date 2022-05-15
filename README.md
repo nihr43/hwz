@@ -8,7 +8,7 @@ An alarming amount of enterprise monitoring solutions essentially operate with r
 
 By exposing a minimal set of metrics in simple json, we more closely adhere to the "least privilege" model; and we enable endless interfacing options.
 
-The scope of this project is not large, and does not include performance metrics - there are numerous open source tools that solve this problem well.  Rather, i am focused on very basic hardware information - disk status, ECC errors, psu failure, etc.
+The scope of this project is not large, and does not include performance metrics - there are numerous open source tools that solve that problem better.  Rather, i am focused on very basic hardware information - disk status, ECC errors, psu failure, etc - the kinds of things where yes, a modern fault tolerant filesystem or redundant power supplies may handle the initial problem, but i still need a simple way to actually find out theres an issue.
 
 ## usage
 
