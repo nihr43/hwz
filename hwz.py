@@ -28,7 +28,8 @@ def check_disks():
         json.append({'name': i.name,
                      'state': i.assessment,
                      'model': i.model,
-                     'reallocated_block_count': i.attributes[5].raw_int})
+                     'reallocated_block_count': i.attributes[5].raw_int,
+                     'read_error_rate': i.attributes[1].raw_int})
     return json
 
 
