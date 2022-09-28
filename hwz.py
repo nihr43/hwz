@@ -16,7 +16,8 @@ def check_disks():
                      'state': i.assessment,
                      'model': i.model,
                      'reallocated_block_count': i.attributes[5].raw_int,
-                     'read_error_rate': i.attributes[1].raw_int})
+                     'read_error_rate': i.attributes[1].raw_int,
+                     'temp': (i.attributes[190] or i.attributes[194]).raw_int})
     return json
 
 
