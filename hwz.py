@@ -31,8 +31,7 @@ def check_ecc_events():
     with open(r'/var/log/kern.log', 'r') as fp:
         lines = fp.readlines()
         for row in lines:
-            word = 'mce: [Hardware Error]: Machine check events logged'
-            if row.find(word) == 0:
+            if 'Machine check events logged' in row:
                 ecc_events['ecc_error_count'] += 1
     return ecc_events
 
