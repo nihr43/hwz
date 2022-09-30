@@ -21,6 +21,17 @@ def check_disks():
     return json
 
 
+def check_ecc_events():
+    ecc_count = 0
+    with open(r'/var/log/kern.log', 'r') as fp:
+        lines = fp.readlines()
+        for row in lines:
+            word = 'mce: [Hardware Error]: Machine check events logged'
+            if row.find(word) == 0:
+                ecc_count += 1
+    return ecc_count
+
+
 if __name__ == '__main__':
     app = Flask(__name__)
     api = Api(app)
@@ -28,7 +39,8 @@ if __name__ == '__main__':
     class all_stats(Resource):
         def get(self):
             disks_output = check_disks()
-            return(jsonify(disks=disks_output))
+            ecc_events = {"ecc_error_count": check_ecc_events()}
+            return(jsonify(disks=disks_output, ecc=ecc_events))
 
     api.add_resource(all_stats, '/healthz/')
     app.run(host='0.0.0.0', port='5000')
