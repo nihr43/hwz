@@ -44,7 +44,7 @@ if __name__ == '__main__':
     class all_stats(Resource):
         def get(self):
             return(jsonify(disks=check_disks(),
-                           ecc=check_ecc_events()))
+                           memory=check_ecc_events()))
 
     api.add_resource(all_stats, '/healthz/')
     app.run(host='0.0.0.0', port='5000')
