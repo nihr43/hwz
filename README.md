@@ -21,18 +21,25 @@ $ curl -s 10.0.0.104:5000/healthz/ | jq
 {
   "disks": [
     {
-      "model": "SanDisk SD7TB3Q-256G-1006",
+      "model": "Crucial_CT275MX300SSD1",
       "name": "sda",
-      "reallocated_block_count": 0,
-      "state": "WARN"
+      "read_error_rate": 1081,
+      "reallocated_block_count": 135,
+      "state": "PASS",
+      "temp": 36
     },
     {
-      "model": "SanDisk SD6SB1M-256G-1006",
+      "model": "Crucial_CT275MX300SSD1",
       "name": "sdb",
-      "reallocated_block_count": 0,
-      "state": "PASS"
+      "read_error_rate": 1,
+      "reallocated_block_count": 2,
+      "state": "PASS",
+      "temp": 40
     }
-  ]
+  ],
+  "ecc": {
+    "ecc_error_count": 0
+  }
 }
 ```
 
