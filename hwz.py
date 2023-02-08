@@ -14,12 +14,16 @@ def check_disks():
     json = []
 
     for i in disks:
+        attributes = []
+        for a in i.attributes:
+            if hasattr(a, 'raw_int'):
+                if a.name != 'Unknown_Attribute':
+                    attributes.append({a.name: a.raw_int})
+
         json.append({'name': i.name,
                      'state': i.assessment,
                      'model': i.model,
-                     'reallocated_block_count': i.attributes[5].raw_int,
-                     'read_error_rate': i.attributes[1].raw_int,
-                     'temp': (i.attributes[190] or i.attributes[194]).raw_int})
+                     'attributes': attributes})
     return json
 
 
