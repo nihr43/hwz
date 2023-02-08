@@ -1,6 +1,6 @@
 ---
-- name: restart hwz
-  service:
+- name: Restart hwz
+  ansible.builtin.service:
     name: hwz
     state: restarted
   listen: restart hwz

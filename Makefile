@@ -3,3 +3,4 @@ test: lint
 
 lint:
 	flake8 hwz.py
+	ansible-lint --write
