@@ -1,0 +1,31 @@
+---
+- name: Install role packages
+  ansible.builtin.package:
+    name: python3-pip
+
+- name: Install hwz pip packages
+  ansible.builtin.pip:
+    name:
+      - flask
+      - flask-restful
+      - pySMART
+
+- name: Land hwz
+  ansible.builtin.copy:
+    src: hwz.py
+    dest: /usr/sbin/hwz
+    mode: 0755
+  notify: restart hwz
+
+- name: Land unit file
+  ansible.builtin.copy:
+    src: hwz.service
+    dest: /lib/systemd/system/hwz.service
+    mode: 0644
+  notify: restart hwz
+
+- name: Enable hwz
+  ansible.builtin.service:
+    name: hwz
+    enabled: true
+    state: started

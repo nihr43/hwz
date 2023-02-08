@@ -1,0 +1,6 @@
+---
+- name: restart hwz
+  service:
+    name: hwz
+    state: restarted
+  listen: restart hwz
