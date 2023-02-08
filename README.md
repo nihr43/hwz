@@ -44,3 +44,11 @@ $ curl -s 10.0.0.104:5000/healthz/ | jq
 ```
 
 Also see provided systemd unit example and requirements.txt
+
+## ansible role
+
+An ansible role for debian is included.  To add to a project:
+
+```
+git -C roles/ submodule add https://github.com/nihr43/hwz.git
+```
