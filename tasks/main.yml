@@ -9,6 +9,7 @@
       - flask
       - flask-restful
       - pySMART
+    extra_args: --break-system-packages
 
 - name: Land hwz
   ansible.builtin.copy:
